@@ -2,11 +2,15 @@
  * FadeIn effect
  */
  function fadeIn(element, speed) {
-    if (typeof(element) === 'string') {
-       element = document.querySelectorAll(element);
-    } else if (element.tagName) { 
-       element =[element]; 
-    }  
+    // if (typeof(element) === 'string') {
+    //    element = document.querySelectorAll(element);
+    // } else if (element.tagName) { 
+    //    element =[element]; 
+    // }
+
+    // use the selector func
+    element = selector(element);
+    
     for (var i=0; i<element.length; i++) {
        var fadeEffect = setInterval(function(ii) {
           if (!element[ii].style.opacity) {

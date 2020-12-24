@@ -8,11 +8,15 @@ function addClass(element, classname, exclude){
     if (!exclude) {
         exclude = '';
     }
-    if (typeof(element) === 'string') {
-        element = document.querySelectorAll(element);
-    } else if (element.tagName) { 
-        element =[element]; 
-    }
+    // if (typeof(element) === 'string') {
+    //    element = document.querySelectorAll(element);
+    // } else if (element.tagName) { 
+    //    element =[element]; 
+    // }
+
+    // use the selector func
+    element = selector(element);
+
     for (var i=0; i<element.length; i++) {
         if (!hasClass(element[i], classname) && exclude == '' && !hasClass(element[i], exclude)){
             var combined             = element[i].className + ' ' + classname;
@@ -38,11 +42,15 @@ function addClass(element, classname, exclude){
             item.classList.add(...list);
         }
     } else { 
-        if (typeof(element) === 'string') {
-            element = document.querySelectorAll(element);
-        } else if (element.tagName) { 
-            element =[element]; 
-        }
+        // if (typeof(element) === 'string') {
+        //     element = document.querySelectorAll(element);
+        // } else if (element.tagName) { 
+        //     element =[element]; 
+        // }
+
+        // use the selector func
+        element = selector(element);
+
         for (var i=0; i<element.length; i++) {
             if (!hasClass(element[i], classname) && exclude == '' && !hasClass(element[i], exclude)){
                 var combined             = element[i].className + ' ' + classname;
